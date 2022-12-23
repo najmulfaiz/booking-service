@@ -16,12 +16,13 @@ class UserResource extends JsonResource
     {
         $response = [
             'data' => [
+                'id'       => $this->id,
                 'name'     => $this->name,
                 'email'    => $this->email,
                 'no_hp'    => $this->no_hp,
                 'alamat'   => $this->alamat,
-                'province' => $this->province ?? null,
-                'regency'  => $this->regency ??  null,
+                'province' => $this->province ??  null,
+                'regency'  => $this->regency  ??  null,
             ]
         ];
 
