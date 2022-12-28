@@ -42,7 +42,6 @@ class BookingController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'tanggal'            => 'required|date',
-            'user_id'            => 'required|string|exists:users,id',
             'nopol'              => 'required|string|max:255',
             'jenis_kendaraan_id' => 'required|string|exists:jenis_kendaraans,id',
             'jenis_transmisi_id' => 'required|string|exists:jenis_transmisis,id',
@@ -57,7 +56,7 @@ class BookingController extends Controller
 
         $booking = new Booking;
         $booking->tanggal            = $request->tanggal;
-        $booking->user_id            = $request->user_id;
+        $booking->user_id            = $request->user()->id;
         $booking->nopol              = $request->nopol;
         $booking->jenis_kendaraan_id = $request->jenis_kendaraan_id;
         $booking->jenis_transmisi_id = $request->jenis_transmisi_id;
