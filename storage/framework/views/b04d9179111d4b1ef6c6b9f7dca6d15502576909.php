@@ -24,7 +24,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="<?php echo e(route('jenis_kendaraan.index')); ?>" key="t-default">Jenis Kendaraan</a></li>
                         <li><a href="<?php echo e(route('jenis_transmisi.index')); ?>" key="t-default">Jenis Transmisi</a></li>
-                        <li><a href="<?php echo e(route('jenis_transmisi.index')); ?>" key="t-default">Part Category</a></li>
+                        <li><a href="<?php echo e(route('part_category.index')); ?>" key="t-default">Part Category</a></li>
                     </ul>
                 </li>
 
