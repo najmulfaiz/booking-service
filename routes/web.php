@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\Api\BookingController;
+use App\Http\Controllers\JenisKendaraanController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\JenisServiceController;
+use App\Http\Controllers\JenisTransmisiController;
+use App\Http\Controllers\PartCategoryController;
+use App\Http\Controllers\PartController;
+use App\Http\Controllers\TipController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,13 +24,16 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
+Route::get('/', function() {
+    return redirect()->route('dashboard.index');
+});
 
-//Update User Details
-Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
-Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
-
-Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
-
-//Language Translation
-Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::resource('jenis_kendaraan', JenisKendaraanController::class);
+    Route::resource('jenis_transmisi', JenisTransmisiController::class);
+    Route::resource('part_category', PartCategoryController::class);
+    Route::resource('booking', BookingController::class);
+    Route::resource('part', PartController::class);
+    Route::resource('tips', TipController::class);
+});

@@ -7,10 +7,10 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title" key="t-menu">@lang('translation.Menu')</li>
+                <li class="menu-title" key="t-menu"><?php echo app('translator')->get('translation.Menu'); ?></li>
 
                 <li>
-                    <a href="{{ route('dashboard.index') }}" class="waves-effect">
+                    <a href="<?php echo e(route('dashboard.index')); ?>" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span key="t-dashboards">Dashboard</span>
                     </a>
@@ -22,28 +22,28 @@
                         <span key="t-master">Master</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('jenis_kendaraan.index') }}" key="t-default">Jenis Kendaraan</a></li>
-                        <li><a href="{{ route('jenis_transmisi.index') }}" key="t-default">Jenis Transmisi</a></li>
-                        <li><a href="{{ route('jenis_transmisi.index') }}" key="t-default">Part Category</a></li>
+                        <li><a href="<?php echo e(route('jenis_kendaraan.index')); ?>" key="t-default">Jenis Kendaraan</a></li>
+                        <li><a href="<?php echo e(route('jenis_transmisi.index')); ?>" key="t-default">Jenis Transmisi</a></li>
+                        <li><a href="<?php echo e(route('jenis_transmisi.index')); ?>" key="t-default">Part Category</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="{{ route('booking.index') }}" class="waves-effect">
+                    <a href="<?php echo e(route('booking.index')); ?>" class="waves-effect">
                         <i class="bx bx-book"></i>
                         <span key="t-dashboards">Booking</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('part.index') }}" class="waves-effect">
+                    <a href="<?php echo e(route('part.index')); ?>" class="waves-effect">
                         <i class="bx bx-cog"></i>
                         <span key="t-part">Part</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('tips.index') }}" class="waves-effect">
+                    <a href="<?php echo e(route('tips.index')); ?>" class="waves-effect">
                         <i class='bx bx-question-mark'></i>
                         <span key="t-tips">Tips</span>
                     </a>
@@ -55,3 +55,4 @@
     </div>
 </div>
 <!-- Left Sidebar End -->
+<?php /**PATH /Users/najmulfaiz/Sites/booking-service/resources/views/layouts/sidebar.blade.php ENDPATH**/ ?>
